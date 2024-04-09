@@ -40,9 +40,18 @@ app.post("/sendmail", (req, res) => {
     const userEmailsir = req.body.userEmailsir || 'manshusmartboy@gmail.com';
     const tentative_schedule = req.body.tentative_schedule || '';
     const delivery_method = req.body.delivery_method || '';
+    const moving_from_country = req.body.moving_from_country || '';
 
 
+    const moving_from_state = req.body.moving_from_state || '';
+    const moving_from_city = req.body.moving_from_city || '';
+    const moving_to_country = req.body.moving_to_country || '';
+    const Location_form_state = req.body.Location_form_state || '';
+    const Location_to_state = req.body.Location_to_state || '';
+    const delivery_type = req.body.delivery_type || '';
     
+
+   
 
 
 
@@ -55,7 +64,14 @@ app.post("/sendmail", (req, res) => {
         ${Location_to ? '<p><strong>Location To:</strong> ' + Location_to + '</p>' : ''}
         ${tentative_schedule ? '<p><strong> Tentative Schedule:</strong> ' + tentative_schedule + '</p>' : ''}
         ${delivery_method ? '<p><strong> Delivery Method:</strong> ' + delivery_method + '</p>' : ''}
+        ${moving_from_country ? '<p><strong>Moving From Country </strong> ' + moving_from_country + '</p>' : ''}
 
+        ${moving_to_country ? '<p><strong>Moving To Country </strong> ' + moving_to_country + '</p>' : ''}
+        ${moving_from_state ? '<p><strong>Moving From State:</strong> ' + moving_from_state + '</p>' : ''}
+        ${Location_form_state ? '<p><strong> Location From state :</strong> ' + Location_to_state + '</p>' : ''}
+        ${Location_to_state ? '<p><strong> Location TO state </strong> ' + Location_to_state + '</p>' : ''}
+        ${delivery_type ? '<p><strong> Delivery Type </strong> ' + delivery_type + '</p>' : ''}
+        
         ${message ? '<p><strong>Message:</strong> ' + message + '</p>' : ''}
     `;
     
