@@ -38,7 +38,11 @@ app.post("/sendmail", (req, res) => {
     const Location_form = req.body.Location_form || '';
     const Location_to = req.body.Location_to || '';
     const userEmailsir = req.body.userEmailsir || 'manshusmartboy@gmail.com';
+    const tentative_schedule = req.body.tentative_schedule || '';
+    const delivery_method = req.body.delivery_method || '';
 
+
+    
 
 
 
@@ -49,6 +53,8 @@ app.post("/sendmail", (req, res) => {
         ${email ? '<p><strong>Email:</strong> ' + email + '</p>' : ''}
         ${Location_form ? '<p><strong>Location Form:</strong> ' + Location_form + '</p>' : ''}
         ${Location_to ? '<p><strong>Location To:</strong> ' + Location_to + '</p>' : ''}
+        ${tentative_schedule ? '<p><strong> Tentative Schedule:</strong> ' + tentative_schedule + '</p>' : ''}
+        ${delivery_method ? '<p><strong> Delivery Method:</strong> ' + delivery_method + '</p>' : ''}
 
         ${message ? '<p><strong>Message:</strong> ' + message + '</p>' : ''}
     `;
