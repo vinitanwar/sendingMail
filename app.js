@@ -50,8 +50,8 @@ app.post("/sendmail", (req, res) => {
     const Location_to_state = req.body.Location_to_state || '';
     const delivery_type = req.body.delivery_type || '';
     
-
-   
+  const new_url = req.body.new_url || '';
+  const need_service = req.body.need_service || '';
 
 
 
@@ -65,12 +65,13 @@ app.post("/sendmail", (req, res) => {
         ${tentative_schedule ? '<p><strong> Tentative Schedule:</strong> ' + tentative_schedule + '</p>' : ''}
         ${delivery_method ? '<p><strong> Delivery Method:</strong> ' + delivery_method + '</p>' : ''}
         ${moving_from_country ? '<p><strong>Moving From Country </strong> ' + moving_from_country + '</p>' : ''}
-
+        ${new_url ? '<p><strong> Website Url </strong> ' + new_url + '</p>' : ''}
         ${moving_to_country ? '<p><strong>Moving To Country </strong> ' + moving_to_country + '</p>' : ''}
         ${moving_from_state ? '<p><strong>Moving From State:</strong> ' + moving_from_state + '</p>' : ''}
         ${Location_form_state ? '<p><strong> Location From state :</strong> ' + Location_to_state + '</p>' : ''}
         ${Location_to_state ? '<p><strong> Location TO state </strong> ' + Location_to_state + '</p>' : ''}
         ${delivery_type ? '<p><strong> Delivery Type </strong> ' + delivery_type + '</p>' : ''}
+        ${need_service ? '<p><strong> Services </strong> ' + need_service + '</p>' : ''}
         
         ${message ? '<p><strong>Message:</strong> ' + message + '</p>' : ''}
     `;
