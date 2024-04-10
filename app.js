@@ -42,7 +42,7 @@ app.post("/sendmail", (req, res) => {
     const delivery_method = req.body.delivery_method || '';
     const moving_from_country = req.body.moving_from_country || '';
 
-   const S_date = req.body.moving_from_country || ''
+   const S_date = req.body.S_date || ''
     const moving_from_state = req.body.moving_from_state || '';
     const moving_from_city = req.body.moving_from_city || '';
     const moving_to_country = req.body.moving_to_country || '';
@@ -68,6 +68,8 @@ app.post("/sendmail", (req, res) => {
         ${new_url ? '<p><strong> Website Url </strong> ' + new_url + '</p>' : ''}
         ${moving_to_country ? '<p><strong>Moving To Country </strong> ' + moving_to_country + '</p>' : ''}
         ${moving_from_state ? '<p><strong>Moving From State:</strong> ' + moving_from_state + '</p>' : ''}
+        ${moving_from_state ? '<p><strong>Moving From State:</strong> ' + moving_from_state + '</p>' : ''}
+
         ${Location_form_state ? '<p><strong> Location From state :</strong> ' + Location_to_state + '</p>' : ''}
         ${Location_to_state ? '<p><strong> Location TO state </strong> ' + Location_to_state + '</p>' : ''}
         ${delivery_type ? '<p><strong> Delivery Type </strong> ' + delivery_type + '</p>' : ''}
