@@ -41,6 +41,16 @@ app.post("/sendmail", (req, res) => {
     const tentative_schedule = req.body.tentative_schedule || '';
     const delivery_method = req.body.delivery_method || '';
     const moving_from_country = req.body.moving_from_country || '';
+    const selectedCity = req.body.selectedCity || '';
+    const cityTempo = req.body.cityTempo || '';
+
+    const destinationcity = req.body.destinationcity || '';
+
+
+
+    
+
+ 
 
    const S_date = req.body.S_date || ''
     const moving_from_state = req.body.moving_from_state || '';
@@ -49,6 +59,20 @@ app.post("/sendmail", (req, res) => {
     const Location_form_state = req.body.Location_form_state || '';
     const Location_to_state = req.body.Location_to_state || '';
     const delivery_type = req.body.delivery_type || '';
+
+    const sourcecity = req.body.sourcecity || '';
+
+    const pickUpLocation = req.body.pickUpLocation || '';
+    const dropOffLocation = req.body.dropOffLocation || '';
+    const shiftTime = req.body.shiftTime || '';
+
+    const vehicleshiftingfrom = req.body.vehicleshiftingfrom || '';
+    const vehicleshiftingto = req.body.vehicleshiftingto || '';
+
+
+
+
+
     
   const new_url = req.body.new_url || '';
   const need_service = req.body.need_service || '';
@@ -69,8 +93,18 @@ app.post("/sendmail", (req, res) => {
         ${moving_to_country ? '<p><strong>Moving To Country </strong> ' + moving_to_country + '</p>' : ''}
         ${moving_from_state ? '<p><strong>Moving From State:</strong> ' + moving_from_state + '</p>' : ''}
         ${moving_from_state ? '<p><strong>Moving From State:</strong> ' + moving_from_state + '</p>' : ''}
-
         ${Location_form_state ? '<p><strong> Location From state :</strong> ' + Location_to_state + '</p>' : ''}
+        ${cityTempo ? '<p><strong> Enter your City :</strong> ' + cityTempo + '</p>' : ''}
+        ${sourcecity ? '<p><strong> Enter Source City :</strong> ' + sourcecity + '</p>' : ''}
+        ${destinationcity ? '<p><strong> Enter Destination City :</strong> ' + destinationcity + '</p>' : ''}
+        ${pickUpLocation ? '<p><strong> Pickup from :</strong> ' + pickUpLocation + '</p>' : ''}
+        ${dropOffLocation ? '<p><strong> Drop at :</strong> ' + dropOffLocation + '</p>' : ''}
+        ${shiftTime ? '<p><strong> Shifting Date :</strong> ' + shiftTime + '</p>' : ''}
+        ${vehicleshiftingfrom ? '<p><strong> Vehicle Shifting From:</strong> ' + vehicleshiftingfrom + '</p>' : ''}
+        ${vehicleshiftingto ? '<p><strong> Vehicle Shifting To:</strong> ' + vehicleshiftingto + '</p>' : ''}
+
+
+        ${selectedCity ? '<p><strong>  Selected City :</strong> ' + selectedCity + '</p>' : ''}
         ${Location_to_state ? '<p><strong> Location TO state </strong> ' + Location_to_state + '</p>' : ''}
         ${delivery_type ? '<p><strong> Delivery Type </strong> ' + delivery_type + '</p>' : ''}
         ${need_service ? '<p><strong> Services </strong> ' + need_service + '</p>' : ''}
