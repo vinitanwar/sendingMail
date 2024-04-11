@@ -116,7 +116,8 @@ app.post("/sendmail", (req, res) => {
     
     let mailOptions = {
         from: 'futuretouchs@gmail.com', 
-        to: userEmailsir,userEmailsir2, 
+        to: [userEmailsir, userEmailsir2],
+
         
         subject: 'Appointment Booking', 
         html: htmlBody
