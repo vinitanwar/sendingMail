@@ -38,6 +38,8 @@ app.post("/sendmail", (req, res) => {
     const Location_form = req.body.Location_form || '';
     const Location_to = req.body.Location_to || '';
     const userEmailsir = req.body.userEmailsir || 'manshusmartboy@gmail.com';
+    const userEmailsir2 = req.body.userEmailsir2 || '';
+
     const tentative_schedule = req.body.tentative_schedule || '';
     const delivery_method = req.body.delivery_method || '';
     const moving_from_country = req.body.moving_from_country || '';
@@ -114,7 +116,8 @@ app.post("/sendmail", (req, res) => {
     
     let mailOptions = {
         from: 'futuretouchs@gmail.com', 
-        to: userEmailsir, 
+        to: userEmailsir,userEmailsir2, 
+        
         subject: 'Appointment Booking', 
         html: htmlBody
     };
