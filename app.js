@@ -2,6 +2,7 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const fs = require('fs');
 
 const app = express();
 
@@ -28,7 +29,7 @@ app.post("/sendmail", (req, res) => {
    
     console.log(req.body)
 
-
+  
     
     const doctorName = req.body.doctor_name || '';
     const name = req.body.S_name || '';
@@ -47,7 +48,7 @@ app.post("/sendmail", (req, res) => {
     const cityTempo = req.body.cityTempo || '';
 
     const destinationcity = req.body.destinationcity || '';
-
+    const filmweb = req.body.filmweb || '';
 
 
     
@@ -114,6 +115,9 @@ app.post("/sendmail", (req, res) => {
         ${message ? '<p><strong>Message:</strong> ' + message + '</p>' : ''}
     `;
     
+
+
+
     let mailOptions = {
         from: 'futuretouchs@gmail.com', 
         to: [userEmailsir, userEmailsir2],
@@ -123,6 +127,18 @@ app.post("/sendmail", (req, res) => {
         html: htmlBody
     };
 
+    if (filmweb) {
+
+
+    
+        mailOptions.attachments = [
+            {
+              filename: 'user.pdf',
+              path: './Files/user.pdf'
+            }
+        ];
+    
+    }
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
             return console.log('Error occurred:', error);
