@@ -31,6 +31,8 @@ app.post("/sendmail", (req, res) => {
 
   
     
+    const user_email = req.body.user_email || '';
+
     const doctorName = req.body.doctor_name || '';
     const name = req.body.S_name || '';
     const phone = req.body.S_phone || '';
@@ -64,6 +66,10 @@ app.post("/sendmail", (req, res) => {
     const delivery_type = req.body.delivery_type || '';
 
     const sourcecity = req.body.sourcecity || '';
+    const S_services = req.body.S_services || '';
+
+
+
 
     const pickUpLocation = req.body.pickUpLocation || '';
     const dropOffLocation = req.body.dropOffLocation || '';
@@ -105,6 +111,9 @@ app.post("/sendmail", (req, res) => {
         ${shiftTime ? '<p><strong> Shifting Date :</strong> ' + shiftTime + '</p>' : ''}
         ${vehicleshiftingfrom ? '<p><strong> Vehicle Shifting From:</strong> ' + vehicleshiftingfrom + '</p>' : ''}
         ${vehicleshiftingto ? '<p><strong> Vehicle Shifting To:</strong> ' + vehicleshiftingto + '</p>' : ''}
+        ${S_services ? '<p><strong> Selected Ammount:</strong> ' + S_services + '</p>' : ''}
+
+
 
 
         ${selectedCity ? '<p><strong>  Selected City :</strong> ' + selectedCity + '</p>' : ''}
@@ -117,10 +126,10 @@ app.post("/sendmail", (req, res) => {
     
 
 
-
+    
     let mailOptions = {
         from: 'futuretouchs@gmail.com', 
-        to: [userEmailsir, userEmailsir2],
+        to: [userEmailsir, userEmailsir2,user_email],
 
         
         subject: 'Appointment Booking', 
