@@ -31,11 +31,15 @@ app.post("/sendmail", (req, res) => {
 
   
     
-    const user_email = req.body.user_email || '';
-
     const doctorName = req.body.doctor_name || '';
     const name = req.body.S_name || '';
     const phone = req.body.S_phone || '';
+   
+    const Looking_for_excell = req.body.Looking_for_excell || '';
+    const plan_date = req.body.plan_date || '';
+    const  budget_salary = req.body.budget_salary || '';
+    const post_code = req.body.post_code || '';
+
     const email = req.body.S_email || '';
     const message = req.body.message || '';
     const Location_form = req.body.Location_form || '';
@@ -66,10 +70,6 @@ app.post("/sendmail", (req, res) => {
     const delivery_type = req.body.delivery_type || '';
 
     const sourcecity = req.body.sourcecity || '';
-    const S_services = req.body.S_services || '';
-
-
-
 
     const pickUpLocation = req.body.pickUpLocation || '';
     const dropOffLocation = req.body.dropOffLocation || '';
@@ -111,9 +111,11 @@ app.post("/sendmail", (req, res) => {
         ${shiftTime ? '<p><strong> Shifting Date :</strong> ' + shiftTime + '</p>' : ''}
         ${vehicleshiftingfrom ? '<p><strong> Vehicle Shifting From:</strong> ' + vehicleshiftingfrom + '</p>' : ''}
         ${vehicleshiftingto ? '<p><strong> Vehicle Shifting To:</strong> ' + vehicleshiftingto + '</p>' : ''}
-        ${S_services ? '<p><strong> Selected Ammount:</strong> ' + S_services + '</p>' : ''}
 
-
+        ${Looking_for_excell ? '<p><strong> What looking for client :</strong> ' + Looking_for_excell + '</p>' : ''}
+        ${plan_date ? '<p><strong>  plan to start your proje :</strong> ' + plan_date + '</p>' : ''}
+        ${budget_salary ? '<p><strong>  plan to start your proje :</strong> ' + budget_salary + '</p>' : ''}
+        ${post_code ? '<p><strong>  User Post code  :</strong> ' + post_code + '</p>' : ''}
 
 
         ${selectedCity ? '<p><strong>  Selected City :</strong> ' + selectedCity + '</p>' : ''}
@@ -126,10 +128,10 @@ app.post("/sendmail", (req, res) => {
     
 
 
-    
+
     let mailOptions = {
         from: 'futuretouchs@gmail.com', 
-        to: [userEmailsir, userEmailsir2,user_email],
+        to: [userEmailsir, userEmailsir2],
 
         
         subject: 'Appointment Booking', 
