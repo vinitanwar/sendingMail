@@ -33,6 +33,7 @@ app.post("/sendmail", (req, res) => {
     
     const doctorName = req.body.doctor_name || '';
     const name = req.body.S_name || '';
+    const last = req.body.S_last || '';
     const phone = req.body.S_phone || '';
    
     const Looking_for_excell = req.body.Looking_for_excell || '';
@@ -90,7 +91,8 @@ app.post("/sendmail", (req, res) => {
 
     let htmlBody = `
         ${doctorName ? '<p><strong>Doctor:</strong> ' + doctorName + '</p>' : ''}
-        ${name ? '<p><strong>Name:</strong> ' + name + '</p>' : ''}
+        ${name ? '<p><strong>First Name:</strong> ' + name + '</p>' : ''}
+        ${last ? '<p><strong>Last Name:</strong> ' + last + '</p>' : ''}
         ${phone ? '<p><strong>Phone:</strong> ' + phone + '</p>' : ''}
         ${email ? '<p><strong>Email:</strong> ' + email + '</p>' : ''}
         ${Location_form ? '<p><strong>Location Form:</strong> ' + Location_form + '</p>' : ''}
