@@ -3,6 +3,7 @@ const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const fs = require('fs');
+const { PDFDocument, StandardFonts, rgb } = require('pdf-lib');
 
 const app = express();
 
@@ -25,11 +26,11 @@ let transporter = nodemailer.createTransport({
 });
 
 
-app.post("/sendmail", (req, res) => {
+app.post("/sendmail", async (req, res) => {
    
     console.log(req.body)
 
-  console.log("hello world")
+  
     
     const doctorName = req.body.doctor_name || '';
     const name = req.body.S_name || '';
@@ -47,6 +48,9 @@ app.post("/sendmail", (req, res) => {
     const Location_to = req.body.Location_to || '';
     const userEmailsir = req.body.userEmailsir || 'manshusmartboy@gmail.com';
     const userEmailsir2 = req.body.userEmailsir2 || '';
+    const user_email = req.body.user_email || '';
+
+    
 
     const tentative_schedule = req.body.tentative_schedule || '';
     const delivery_method = req.body.delivery_method || '';
@@ -129,11 +133,56 @@ app.post("/sendmail", (req, res) => {
     `;
     
 
+    const originalPdfPath = './Files/user.pdf';
+    const newPdfPath = './Files/new_user.pdf';
 
+    const existingPdfBytes = fs.readFileSync(originalPdfPath);
+    const existingPdfDoc = await PDFDocument.load(existingPdfBytes);
+
+    // Get the last page of the existing PDF
+    const pages = existingPdfDoc.getPages();
+    const lastPage = pages[pages.length - 1];
+    const { width, height } = lastPage.getSize();
+    
+    const boldFont = await existingPdfDoc.embedFont(StandardFonts.HelveticaBold);
+    const fontSize = 12;
+    const margin = 50; // Margin from the top for the text content
+    const textContent = [
+       
+        `First Name: ${name}`,
+        `Email : ${email}`,
+        `Phone : ${phone}`,
+        
+        `Service : ${S_services}`,
+        
+        `Message: ${message}`
+    ];
+   
+    let yPosition = height - margin; // Start position from top with margin
+    const lineHeight = 20; // Line height between each line of text
+   console.log(yPosition)
+  let ynewPosition = 380
+  console.log(ynewPosition)
+    textContent.forEach(text => {
+        if (text) {
+            lastPage.drawText(text, {
+                x: margin,
+                y: ynewPosition,
+                size: fontSize,
+                font: boldFont,
+                color: rgb(0, 0, 0),
+            });
+            ynewPosition -= lineHeight;
+        }
+    });
+
+    // Save the modified PDF document
+    const newPdfBytes = await existingPdfDoc.save();
+    fs.writeFileSync(newPdfPath, newPdfBytes);
 
     let mailOptions = {
         from: 'futuretouchs@gmail.com', 
-        to: [userEmailsir, userEmailsir2],
+        to: [userEmailsir, userEmailsir2,user_email],
 
         
         subject: 'Appointment Booking', 
@@ -146,8 +195,8 @@ app.post("/sendmail", (req, res) => {
     
         mailOptions.attachments = [
             {
-              filename: 'user.pdf',
-              path: './Files/user.pdf'
+                filename: 'new_user.pdf',
+                path: newPdfPath
             }
         ];
     
