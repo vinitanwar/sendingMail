@@ -152,7 +152,7 @@ app.post("/sendmail", async (req, res) => {
     const textContent = [
        
         `First Name: ${name}`,
-        `Email : ${email}`,
+        `Email : ${user_email}`,
         `Phone : ${phone}`,
         
         `Service : ${S_services}`,
