@@ -29,7 +29,7 @@ app.post("/sendmail", (req, res) => {
    
     console.log(req.body)
 
-  
+  console.log("hello world")
     
     const doctorName = req.body.doctor_name || '';
     const name = req.body.S_name || '';
