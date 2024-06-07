@@ -81,6 +81,8 @@ app.post("/sendmail", async (req, res) => {
     const shiftTime = req.body.shiftTime || '';
 
     const vehicleshiftingfrom = req.body.vehicleshiftingfrom || '';
+    const S_services = req.body.S_services || '';
+
     const vehicleshiftingto = req.body.vehicleshiftingto || '';
 
 
@@ -122,7 +124,7 @@ app.post("/sendmail", async (req, res) => {
         ${plan_date ? '<p><strong>  plan to start your proje :</strong> ' + plan_date + '</p>' : ''}
         ${budget_salary ? '<p><strong>  plan to start your proje :</strong> ' + budget_salary + '</p>' : ''}
         ${post_code ? '<p><strong>  User Post code  :</strong> ' + post_code + '</p>' : ''}
-
+        ${S_services ? '<p><strong> Service :</strong> ' + S_services + '</p>' : ''}
 
         ${selectedCity ? '<p><strong>  Selected City :</strong> ' + selectedCity + '</p>' : ''}
         ${Location_to_state ? '<p><strong> Location TO state </strong> ' + Location_to_state + '</p>' : ''}
