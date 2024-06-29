@@ -43,6 +43,7 @@ app.post("/sendmail", async (req, res) => {
     const post_code = req.body.post_code || '';
 
     const email = req.body.S_email || '';
+    const Address = req.body.Address || '';
     const message = req.body.message || '';
     const Location_form = req.body.Location_form || '';
     const Location_to = req.body.Location_to || '';
@@ -125,6 +126,7 @@ app.post("/sendmail", async (req, res) => {
         ${budget_salary ? '<p><strong>  plan to start your proje :</strong> ' + budget_salary + '</p>' : ''}
         ${post_code ? '<p><strong>  User Post code  :</strong> ' + post_code + '</p>' : ''}
         ${S_services ? '<p><strong> Service :</strong> ' + S_services + '</p>' : ''}
+        ${Address ? '<p><strong> Address :</strong> ' + Address + '</p>' : ''}
 
         ${selectedCity ? '<p><strong>  Selected City :</strong> ' + selectedCity + '</p>' : ''}
         ${Location_to_state ? '<p><strong> Location TO state </strong> ' + Location_to_state + '</p>' : ''}
