@@ -83,23 +83,34 @@ app.post("/sendmail", async (req, res) => {
 
     const vehicleshiftingfrom = req.body.vehicleshiftingfrom || '';
     const S_services = req.body.S_services || '';
+    const service_type = req.body.service_type || '';
+
+
 
     const vehicleshiftingto = req.body.vehicleshiftingto || '';
 
 
 
-
+    
+    const budget_range = req.body.budget_range || '';
 
     
   const new_url = req.body.new_url || '';
+  const start_time = req.body.start_time || '';
+
   const need_service = req.body.need_service || '';
+  const skype_id = req.body.skype_id || '';
 
 
+
+  
 
     let htmlBody = `
         ${doctorName ? '<p><strong>Doctor:</strong> ' + doctorName + '</p>' : ''}
         ${name ? '<p><strong>First Name:</strong> ' + name + '</p>' : ''}
         ${last ? '<p><strong>Last Name:</strong> ' + last + '</p>' : ''}
+
+        
         ${phone ? '<p><strong>Phone:</strong> ' + phone + '</p>' : ''}
         ${email ? '<p><strong>Email:</strong> ' + email + '</p>' : ''}
         ${Location_form ? '<p><strong>Location Form:</strong> ' + Location_form + '</p>' : ''}
@@ -121,12 +132,21 @@ app.post("/sendmail", async (req, res) => {
         ${vehicleshiftingfrom ? '<p><strong> Vehicle Shifting From:</strong> ' + vehicleshiftingfrom + '</p>' : ''}
         ${vehicleshiftingto ? '<p><strong> Vehicle Shifting To:</strong> ' + vehicleshiftingto + '</p>' : ''}
 
+        
         ${Looking_for_excell ? '<p><strong> What looking for client :</strong> ' + Looking_for_excell + '</p>' : ''}
         ${plan_date ? '<p><strong>  plan to start your proje :</strong> ' + plan_date + '</p>' : ''}
         ${budget_salary ? '<p><strong>  plan to start your proje :</strong> ' + budget_salary + '</p>' : ''}
         ${post_code ? '<p><strong>  User Post code  :</strong> ' + post_code + '</p>' : ''}
         ${S_services ? '<p><strong> Service :</strong> ' + S_services + '</p>' : ''}
+        ${service_type ? '<p><strong> Service :</strong> ' + service_type + '</p>' : ''}
+        ${budget_range ? '<p><strong> Budget Range</strong> ' + budget_range + '</p>' : ''}
+
+        ${start_time ? '<p><strong> Start Time :</strong> ' + start_time + '</p>' : ''}
+
+        
         ${Address ? '<p><strong> Address :</strong> ' + Address + '</p>' : ''}
+        ${skype_id ? '<p><strong> Skype Id :</strong> ' + skype_id + '</p>' : ''}
+
 
         ${selectedCity ? '<p><strong>  Selected City :</strong> ' + selectedCity + '</p>' : ''}
         ${Location_to_state ? '<p><strong> Location TO state </strong> ' + Location_to_state + '</p>' : ''}
