@@ -99,7 +99,7 @@ app.post("/sendmail", async (req, res) => {
   const start_time = req.body.start_time || '';
 
   const need_service = req.body.need_service || '';
-  const skype_id = req.body.skype_id || '';
+ 
 
 
 
