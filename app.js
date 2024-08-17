@@ -20,8 +20,8 @@ app.get('/', (req, res) => {
 let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'futuretouchs@gmail.com', 
-        pass: 'ufvmdzzopesgubhg' 
+        user: 'futureittouch@gmail.com', 
+        pass: 'xmnkckbdtskzyfuh' 
     }
 });
 
