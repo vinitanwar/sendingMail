@@ -99,8 +99,14 @@ app.post("/sendmail", async (req, res) => {
   const start_time = req.body.start_time || '';
 
   const need_service = req.body.need_service || '';
- 
+  const company_size = req.body.company_size || '';
+  const company_name = req.body.company_name || '';
+  const designation = req.body.designation || '';
 
+
+  
+  
+  
 
 
   
@@ -111,6 +117,10 @@ app.post("/sendmail", async (req, res) => {
         ${last ? '<p><strong>Last Name:</strong> ' + last + '</p>' : ''}
 
         
+        ${designation ? '<p><strong> Designation :</strong> ' + designation + '</p>' : ''}
+        ${company_name ? '<p><strong> Company Name :</strong> ' + company_name + '</p>' : ''}
+        ${company_size ? '<p><strong> Company Size:</strong> ' + company_size + '</p>' : ''}
+
         ${phone ? '<p><strong>Phone:</strong> ' + phone + '</p>' : ''}
         ${email ? '<p><strong>Email:</strong> ' + email + '</p>' : ''}
         ${Location_form ? '<p><strong>Location Form:</strong> ' + Location_form + '</p>' : ''}
