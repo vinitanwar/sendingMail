@@ -51,7 +51,10 @@ app.post("/sendmail", async (req, res) => {
     const userEmailsir2 = req.body.userEmailsir2 || '';
     const user_email = req.body.user_email || '';
 
-    
+
+     const education = req.body.education || '';
+
+         const experience = req.body.experience || '';
 
     const tentative_schedule = req.body.tentative_schedule || '';
     const delivery_method = req.body.delivery_method || '';
@@ -116,6 +119,8 @@ app.post("/sendmail", async (req, res) => {
         ${name ? '<p><strong>First Name:</strong> ' + name + '</p>' : ''}
         ${last ? '<p><strong>Last Name:</strong> ' + last + '</p>' : ''}
 
+
+
         
         ${designation ? '<p><strong> Designation :</strong> ' + designation + '</p>' : ''}
         ${company_name ? '<p><strong> Company Name :</strong> ' + company_name + '</p>' : ''}
@@ -124,6 +129,12 @@ app.post("/sendmail", async (req, res) => {
         ${phone ? '<p><strong>Phone:</strong> ' + phone + '</p>' : ''}
         ${email ? '<p><strong>Email:</strong> ' + email + '</p>' : ''}
         ${Location_form ? '<p><strong>Location Form:</strong> ' + Location_form + '</p>' : ''}
+
+         ${education ? '<p><strong>Education:</strong> ' + education + '</p>' : ''}
+           ${experience ? '<p><strong>Experience:</strong> ' + experience + '</p>' : ''}
+         
+
+
         ${Location_to ? '<p><strong>Location To:</strong> ' + Location_to + '</p>' : ''}
         ${tentative_schedule ? '<p><strong> Tentative Schedule:</strong> ' + tentative_schedule + '</p>' : ''}
         ${delivery_method ? '<p><strong> Delivery Method:</strong> ' + delivery_method + '</p>' : ''}
