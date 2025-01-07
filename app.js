@@ -51,6 +51,9 @@ app.post("/sendmail", async (req, res) => {
     const userEmailsir2 = req.body.userEmailsir2 || '';
     const user_email = req.body.user_email || '';
 
+const ieltsScore = req.body.ieltsScore || '';
+    
+
 
      const education = req.body.education || '';
 
@@ -132,7 +135,7 @@ app.post("/sendmail", async (req, res) => {
 
          ${education ? '<p><strong>Education:</strong> ' + education + '</p>' : ''}
            ${experience ? '<p><strong>Experience:</strong> ' + experience + '</p>' : ''}
-         
+         ${ieltsScore ? '<p><strong>Ielts Score:</strong> ' + ieltsScore + '</p>' : ''}
 
 
         ${Location_to ? '<p><strong>Location To:</strong> ' + Location_to + '</p>' : ''}
