@@ -31,8 +31,10 @@ app.post("/sendmail", async (req, res) => {
     console.log(req.body)
 
   
-    
+    // visaType
     const doctorName = req.body.doctor_name || '';
+    const visaType = req.body.visaType || '';
+    
     const name = req.body.S_name || '';
     const last = req.body.S_last || '';
     const phone = req.body.S_phone || '';
@@ -121,6 +123,8 @@ const ieltsScore = req.body.ieltsScore || '';
         ${doctorName ? '<p><strong>Doctor:</strong> ' + doctorName + '</p>' : ''}
         ${name ? '<p><strong>First Name:</strong> ' + name + '</p>' : ''}
         ${last ? '<p><strong>Last Name:</strong> ' + last + '</p>' : ''}
+       
+        
 
 
 
@@ -136,7 +140,7 @@ const ieltsScore = req.body.ieltsScore || '';
          ${education ? '<p><strong>Education:</strong> ' + education + '</p>' : ''}
            ${experience ? '<p><strong>Experience:</strong> ' + experience + '</p>' : ''}
          ${ieltsScore ? '<p><strong>Ielts Score:</strong> ' + ieltsScore + '</p>' : ''}
-
+ ${visaType ? '<p><strong> Visa Type </strong> ' + visaType + '</p>' : ''}
 
              ${DestinationCountry ? '<p><strong>Destination Country:</strong> ' + DestinationCountry + '</p>' : ''}
          ${currentCountry ? '<p><strong>Current Country:</strong> ' + currentCountry + '</p>' : ''}
