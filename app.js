@@ -52,9 +52,9 @@ app.post("/sendmail", async (req, res) => {
     const user_email = req.body.user_email || '';
 
 const ieltsScore = req.body.ieltsScore || '';
-    
+    const DestinationCountry = req.body.DestinationCountry || '';
 
-
+ const currentCountry = req.body.currentCountry || '';
      const education = req.body.education || '';
 
          const experience = req.body.experience || '';
