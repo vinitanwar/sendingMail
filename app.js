@@ -138,6 +138,10 @@ const ieltsScore = req.body.ieltsScore || '';
          ${ieltsScore ? '<p><strong>Ielts Score:</strong> ' + ieltsScore + '</p>' : ''}
 
 
+             ${DestinationCountry ? '<p><strong>Destination Country:</strong> ' + DestinationCountry + '</p>' : ''}
+         ${currentCountry ? '<p><strong>Current Country:</strong> ' + currentCountry + '</p>' : ''}
+
+
         ${Location_to ? '<p><strong>Location To:</strong> ' + Location_to + '</p>' : ''}
         ${tentative_schedule ? '<p><strong> Tentative Schedule:</strong> ' + tentative_schedule + '</p>' : ''}
         ${delivery_method ? '<p><strong> Delivery Method:</strong> ' + delivery_method + '</p>' : ''}
