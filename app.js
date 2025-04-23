@@ -30,6 +30,7 @@ app.post("/sendmail", async (req, res) => {
    
     console.log(req.body)
 
+    const course = req.body.course || '';
   
     // visaType
     const doctorName = req.body.doctor_name || '';
@@ -129,7 +130,7 @@ const ieltsScore = req.body.ieltsScore || '';
         
 
 
-
+  ${course ? '<p><strong>course :</strong> ' + course + '</p>' : ''}
         
         ${designation ? '<p><strong> Designation :</strong> ' + designation + '</p>' : ''}
         ${company_name ? '<p><strong> Company Name :</strong> ' + company_name + '</p>' : ''}
@@ -146,7 +147,7 @@ ${product ? '<p><strong>Product:</strong> ' + product + '</p>' : ''}
 
              ${DestinationCountry ? '<p><strong>Destination Country:</strong> ' + DestinationCountry + '</p>' : ''}
          ${currentCountry ? '<p><strong>Current Country:</strong> ' + currentCountry + '</p>' : ''}
-
+         ${currentCountry ? '<p><strong>Current Country:</strong> ' + currentCountry + '</p>' : ''}
 
         ${Location_to ? '<p><strong>Location To:</strong> ' + Location_to + '</p>' : ''}
         ${tentative_schedule ? '<p><strong> Tentative Schedule:</strong> ' + tentative_schedule + '</p>' : ''}
